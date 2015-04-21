@@ -1,10 +1,10 @@
 <?php
 /*
-Plugin Name: Latest Posts Widget
+Plugin Name: Latest Posts Widget - A Little Light version 
 Plugin URI: https://wordpress.org/plugins/latest-posts-widget/
 Description: Adds a widget that shows the most recent posts of your site with Thumbnail, Excerpt, Date etc options.
-Author: Mrinal Kanti Roy
-Version: 1.0
+Author: Mrinal Kanti Roy and Adaptation for the A Little Light Theme by hderaps.
+Version: 1.1
 Author URI: http://profiles.wordpress.org/mkrdip/
 */
 
@@ -101,7 +101,7 @@ class LP_Post_Widget extends WP_Widget {
 			$cat_posts->the_post();
 			?>
 			<li class="recent-post-thumb-item">
-				<a class="post-title" href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
+				<?php if ( in_category ('work-life-balance')) :?><i class="icon-scales"></i><?php elseif ( in_category ('behind-the-scenes')) :?><i class="icon-dna"></i><?php elseif ( in_category ('inspired-by')) :?><i class="icon-head-idea-lightbulb"></i><?php elseif ( in_category ('on-small-business')) :?><i class="icon-feather"></i><?php elseif ( in_category ('making-a-home')) :?><i class="icon-tools"></i><?php else:?><i class="icon-pin"></i><?php endif ?> <a class="post-title" href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
 
 
 				<?php if ( isset( $instance['date'] ) ) : ?>
