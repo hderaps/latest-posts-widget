@@ -100,13 +100,15 @@ class LP_Post_Widget extends WP_Widget {
 		while ( $cat_posts->have_posts() ) {
 			$cat_posts->the_post();
 			?>
-			<li class="recent-post-thumb-item">
+			<li class="recent-post-thumb-item col col-12 no-gutter">
+           
 				<?php if ( in_category ('work-life-balance')) :?><i class="icon-scales"></i><?php elseif ( in_category ('behind-the-scenes')) :?><i class="icon-dna"></i><?php elseif ( in_category ('inspired-by')) :?><i class="icon-head-idea-lightbulb"></i><?php elseif ( in_category ('on-small-business')) :?><i class="icon-feather"></i><?php elseif ( in_category ('making-a-home')) :?><i class="icon-tools"></i><?php else:?><i class="icon-pin"></i><?php endif ?> <a class="post-title" href="<?php the_permalink(); ?>" rel="bookmark" title="Permanent link to <?php the_title_attribute(); ?>"><?php the_title(); ?></a>
 
 
 				<?php if ( isset( $instance['date'] ) ) : ?>
-					<p class="post-date"><?php the_time( "j M Y" ); ?></p>
+					&nbsp;&nbsp;<span class="post-date"><?php the_time( "j M Y" ); ?></span>
 				<?php endif; ?>
+               
 
 				<?php if ( current_theme_supports( "post-thumbnails" ) && isset( $instance["thumb"] ) && has_post_thumbnail() ) : ?>
 					<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
